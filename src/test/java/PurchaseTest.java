@@ -67,8 +67,8 @@ class PurchaseTest
     void testSelectCellphone()
     {
         // Given
-        String modelNames[] = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
-        int prices[] = {6000,800,1000,900,900};
+        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
+        int[] prices = {6000,800,1000,900,900};
 
         for (int i = 0; i < prices.length; i++)
         {
