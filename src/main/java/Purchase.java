@@ -16,6 +16,7 @@ public class Purchase
     public ArrayList<String> getCellphones()
     {
         return cellphones;
+
     }
 
     public int includeExcludeInternetConnection(boolean connection)
