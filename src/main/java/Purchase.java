@@ -8,9 +8,9 @@ public class Purchase
 
     private ArrayList<String> cellphones;
 
-    public Purchase(ArrayList<String> cellphones)
+    public Purchase()
     {
-        this.cellphones = cellphones;
+        cellphones = new ArrayList<>();
     }
 
     public int includeExcludeInternetConnection(boolean connection)
