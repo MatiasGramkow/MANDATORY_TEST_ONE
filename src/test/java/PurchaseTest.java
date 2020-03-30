@@ -81,11 +81,20 @@ class PurchaseTest
     }
 
     @Test
-    void unselectCellphone()
+    void testUnselectCellphone()
     {
         // Given
-        // When
-        // Then
+        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
+        int[] prices = {-6000,-800,-1000,-900,-900};
+
+        for (int i = 0; i < prices.length; i++)
+        {
+            // When
+            int value = purchase.unselectCellphone(modelNames[i]);
+
+            // Then
+            assertEquals(prices[i],value);
+        }
     }
 
     @Test
