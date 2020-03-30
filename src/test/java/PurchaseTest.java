@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,10 +12,24 @@ class PurchaseTest
 {
     private Purchase purchase;
 
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Starting tests");
+    }
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("Finished tests");
+    }
+
     @BeforeEach
     void setup()
     {
         this.purchase = new Purchase();
+    }
+    @AfterEach
+    void afterEach() {
+        System.out.println("Current Test Done");
     }
 
     @Test

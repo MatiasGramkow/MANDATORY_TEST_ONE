@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="PurchaseTest" time="0.019" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="PurchaseTest" time="0.086" tests="17" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5+10-b520.38"/>
@@ -62,15 +62,21 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testUnselectCellphone" classname="PurchaseTest" time="0.005"/>
-  <testcase name="testDecrementNumberOfPhoneLinesWithIncrementedPhoneLines" classname="PurchaseTest" time="0"/>
+  <testcase name="testUnselectCellphone" classname="PurchaseTest" time="0.008"/>
+  <testcase name="testLowerPriceBoundaryPositive{int}[1]" classname="PurchaseTest" time="0.017"/>
+  <testcase name="testLowerPriceBoundaryPositive{int}[2]" classname="PurchaseTest" time="0.002"/>
+  <testcase name="testLowerPriceBoundaryPositive{int}[3]" classname="PurchaseTest" time="0.018"/>
+  <testcase name="testLowerPriceBoundaryNegative{int}[1]" classname="PurchaseTest" time="0.001"/>
+  <testcase name="testLowerPriceBoundaryNegative{int}[2]" classname="PurchaseTest" time="0.001"/>
+  <testcase name="testLowerPriceBoundaryNegative{int}[3]" classname="PurchaseTest" time="0.001"/>
+  <testcase name="testDecrementNumberOfPhoneLinesWithIncrementedPhoneLines" classname="PurchaseTest" time="0.002"/>
   <testcase name="testUnselectCellphoneWithEmptyList" classname="PurchaseTest" time="0"/>
-  <testcase name="testBuyingSomething" classname="PurchaseTest" time="0.002"/>
-  <testcase name="testIncludeExcludeInternetConnectionTrue" classname="PurchaseTest" time="0"/>
-  <testcase name="testSelectCellphone" classname="PurchaseTest" time="0.001"/>
+  <testcase name="testBuyingSomething" classname="PurchaseTest" time="0"/>
+  <testcase name="testIncludeExcludeInternetConnectionTrue" classname="PurchaseTest" time="0.001"/>
+  <testcase name="testSelectCellphone" classname="PurchaseTest" time="0"/>
   <testcase name="testBuyingNothing" classname="PurchaseTest" time="0"/>
   <testcase name="testIncludeExcludeInternetConnectionFalseThenTrue" classname="PurchaseTest" time="0"/>
   <testcase name="testDecrementNumberOfPhoneLinesWithZeroPhoneLines" classname="PurchaseTest" time="0"/>
-  <testcase name="testIncrementNumberOfPhoneLines" classname="PurchaseTest" time="0"/>
+  <testcase name="testIncrementNumberOfPhoneLines" classname="PurchaseTest" time="0.001"/>
   <testcase name="testIncludeExcludeInternetConnectionFalseThenFalse" classname="PurchaseTest" time="0"/>
 </testsuite>
