@@ -42,19 +42,25 @@ class PurchaseTest
     }
 
     @Test
-    void incrementNumberOfPhoneLines()
+    void testIncrementNumberOfPhoneLinesTrue()
     {
         // Given
+        int number = 150;
         // When
+        int value = purchase.incrementNumberOfPhoneLines();
         // Then
+        assertEquals(number, value);
     }
 
     @Test
-    void decrementNumberOfPhoneLines()
+    void testDecrementNumberOfPhoneLinesTrue()
     {
         // Given
+        int number = -150;
         // When
+        int value = purchase.decrementNumberOfPhoneLines();
         // Then
+        assertEquals(number, value);
     }
 
     @Test
