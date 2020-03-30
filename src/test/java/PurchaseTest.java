@@ -31,10 +31,24 @@ class PurchaseTest
     }
 
     @Test
-    void testIncludeExcludeInternetConnectionFalse()
+    void testIncludeExcludeInternetConnectionFalseThenTrue()
     {
         // Given
         boolean connectionFalse = false;
+        purchase.setInternetConnection(true);
+        purchase.setPrice(200);
+        // When
+        int value = purchase.includeExcludeInternetConnection(connectionFalse);
+        // Then
+        assertEquals(0, value);
+    }
+
+    @Test
+    void testIncludeExcludeInternetConnectionFalseThenFalse()
+    {
+        // Given
+        boolean connectionFalse = false;
+        purchase.setInternetConnection(false);
         // When
         int value = purchase.includeExcludeInternetConnection(connectionFalse);
         // Then
@@ -53,10 +67,22 @@ class PurchaseTest
     }
 
     @Test
-    void testDecrementNumberOfPhoneLines()
+    void testDecrementNumberOfPhoneLinesWithIncrementedPhoneLines()
     {
         // Given
-        int number = -150;
+        int number = 0;
+        purchase.incrementNumberOfPhoneLines();
+        // When
+        int value = purchase.decrementNumberOfPhoneLines();
+        // Then
+        assertEquals(number, value);
+    }
+
+    @Test
+    void testDecrementNumberOfPhoneLinesWithZeroPhoneLines()
+    {
+        // Given
+        int number = 0;
         // When
         int value = purchase.decrementNumberOfPhoneLines();
         // Then
@@ -68,15 +94,13 @@ class PurchaseTest
     {
         // Given
         String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99","No Phone"};
-        int[] prices = {6000,800,1000,900,900,0};
 
-        for (int i = 0; i < prices.length; i++)
+        for (String modelName : modelNames)
         {
             // When
-            int value = purchase.selectCellphone(modelNames[i]);
-
+            int value = purchase.selectCellphone(modelName);
             // Then
-            assertEquals(prices[i],value);
+            assertEquals(purchase.getPrice(), value);
         }
     }
 
@@ -85,16 +109,29 @@ class PurchaseTest
     {
         // Given
         String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99","No Phone"};
-        int[] prices = {-6000,-800,-1000,-900,-900,0};
 
-        for (int i = 0; i < prices.length; i++)
+        for (String modelName : modelNames)
         {
             // When
-            int value = purchase.unselectCellphone(modelNames[i]);
+            int value = purchase.unselectCellphone(modelName);
 
             // Then
-            assertEquals(prices[i],value);
+            assertEquals(purchase.getPrice(), value);
         }
+    }
+
+    @Test
+    void testUnselectCellphoneWithEmptyList()
+    {
+        // Given
+        String modelNames = "IPhone 99";
+
+        // When
+        int value = purchase.unselectCellphone(modelNames);
+
+        // Then
+        assertEquals(purchase.getPrice(), value);
+
     }
 
     @Test
