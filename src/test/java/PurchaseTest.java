@@ -42,7 +42,7 @@ class PurchaseTest
     }
 
     @Test
-    void testIncrementNumberOfPhoneLinesTrue()
+    void testIncrementNumberOfPhoneLines()
     {
         // Given
         int number = 150;
@@ -53,7 +53,7 @@ class PurchaseTest
     }
 
     @Test
-    void testDecrementNumberOfPhoneLinesTrue()
+    void testDecrementNumberOfPhoneLines()
     {
         // Given
         int number = -150;
@@ -64,11 +64,20 @@ class PurchaseTest
     }
 
     @Test
-    void selectCellphone()
+    void testSelectCellphone()
     {
         // Given
-        // When
-        // Then
+        String modelNames[] = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
+        int prices[] = {6000,800,1000,900,900};
+
+        for (int i = 0; i < prices.length; i++)
+        {
+            // When
+            int value = purchase.selectCellphone(modelNames[i]);
+
+            // Then
+            assertEquals(prices[i],value);
+        }
     }
 
     @Test
