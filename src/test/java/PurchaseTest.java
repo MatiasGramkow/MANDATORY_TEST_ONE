@@ -3,10 +3,8 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PurchaseTest
 {
@@ -67,6 +65,7 @@ class PurchaseTest
         // Then
         assertEquals(0, value);
     }
+
 
     @Test
     void testIncrementNumberOfPhoneLines()
