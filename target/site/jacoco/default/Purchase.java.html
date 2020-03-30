@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Purchase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MANDATORY_TEST_ONE</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Purchase.java</span></div><h1>Purchase.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+
+public class Purchase
+{
+    boolean internetConnection;
+    int phoneLines, price;
+    String message;
+
+    private ArrayList&lt;String&gt; cellphones;
+
+    public Purchase()
+<span class="fc" id="L12">    {</span>
+<span class="fc" id="L13">        cellphones = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L14">    }</span>
+
+    public ArrayList&lt;String&gt; getCellphones()
+    {
+<span class="fc" id="L18">        return cellphones;</span>
+    }
+
+    public int includeExcludeInternetConnection(boolean connection)
+    {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (connection)</span>
+        {
+<span class="fc" id="L25">            return 200;</span>
+        }
+        else
+        {
+<span class="fc" id="L29">            return 0;</span>
+        }
+    }
+
+    public int incrementNumberOfPhoneLines()
+    {
+<span class="fc" id="L35">        return 150;</span>
+    }
+
+    public int decrementNumberOfPhoneLines()
+    {
+<span class="fc" id="L40">        return -150;</span>
+    }
+
+    public int selectCellphone(String modelName)
+    {
+<span class="fc bfc" id="L45" title="All 6 branches covered.">        switch (modelName)</span>
+        {
+            case &quot;IPhone 99&quot;:
+<span class="fc" id="L48">                cellphones.add(&quot;IPhone 99&quot;);</span>
+<span class="fc" id="L49">                return 6000;</span>
+            case &quot;Motorola G99&quot;:
+<span class="fc" id="L51">                cellphones.add(&quot;Motorola G99&quot;);</span>
+<span class="fc" id="L52">                return 800;</span>
+            case &quot;Samsung Galaxy 99&quot;:
+<span class="fc" id="L54">                cellphones.add(&quot;Samsung Galaxy 99&quot;);</span>
+<span class="fc" id="L55">                return 1000;</span>
+            case &quot;Sony Xperia 99&quot;:
+<span class="fc" id="L57">                cellphones.add(&quot;Sony Xperia 99&quot;);</span>
+<span class="fc" id="L58">                return 900;</span>
+            case &quot;Huawei 99&quot;:
+<span class="fc" id="L60">                cellphones.add(&quot;Huawei 99&quot;);</span>
+<span class="fc" id="L61">                return 900;</span>
+            default:
+<span class="fc" id="L63">                return 0;</span>
+        }
+    }
+
+    public int unselectCellphone(String modelName)
+    {
+<span class="fc bfc" id="L69" title="All 6 branches covered.">        switch (modelName)</span>
+        {
+            case &quot;IPhone 99&quot;:
+<span class="fc" id="L72">                cellphones.remove(&quot;IPhone 99&quot;);</span>
+<span class="fc" id="L73">                return -6000;</span>
+            case &quot;Motorola G99&quot;:
+<span class="fc" id="L75">                cellphones.remove(&quot;Motorola G99&quot;);</span>
+<span class="fc" id="L76">                return -800;</span>
+            case &quot;Samsung Galaxy 99&quot;:
+<span class="fc" id="L78">                cellphones.remove(&quot;Samsung Galaxy 99&quot;);</span>
+<span class="fc" id="L79">                return -1000;</span>
+            case &quot;Sony Xperia 99&quot;:
+<span class="fc" id="L81">                cellphones.remove(&quot;Sony Xperia 99&quot;);</span>
+<span class="fc" id="L82">                return -900;</span>
+            case &quot;Huawei 99&quot;:
+<span class="fc" id="L84">                cellphones.remove(&quot;Huawei 99&quot;);</span>
+<span class="fc" id="L85">                return -900;</span>
+            default:
+<span class="fc" id="L87">                return 0;</span>
+        }
+    }
+
+    public String buying()
+    {
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        if (cellphones.isEmpty())</span>
+        {
+<span class="fc" id="L95">            return  &quot;Please select one or more phones to continue&quot;;</span>
+        }
+        else
+        {
+<span class="fc" id="L99">            return &quot;You have purchased &quot; + cellphones;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

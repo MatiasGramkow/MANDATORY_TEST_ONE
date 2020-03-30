@@ -13,6 +13,11 @@ public class Purchase
         cellphones = new ArrayList<>();
     }
 
+    public ArrayList<String> getCellphones()
+    {
+        return cellphones;
+    }
+
     public int includeExcludeInternetConnection(boolean connection)
     {
         if (connection)

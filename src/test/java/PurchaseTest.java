@@ -67,8 +67,8 @@ class PurchaseTest
     void testSelectCellphone()
     {
         // Given
-        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
-        int[] prices = {6000,800,1000,900,900};
+        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99","No Phone"};
+        int[] prices = {6000,800,1000,900,900,0};
 
         for (int i = 0; i < prices.length; i++)
         {
@@ -84,8 +84,8 @@ class PurchaseTest
     void testUnselectCellphone()
     {
         // Given
-        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
-        int[] prices = {-6000,-800,-1000,-900,-900};
+        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99","No Phone"};
+        int[] prices = {-6000,-800,-1000,-900,-900,0};
 
         for (int i = 0; i < prices.length; i++)
         {
@@ -98,10 +98,32 @@ class PurchaseTest
     }
 
     @Test
-    void buying()
+    void testBuyingSomething()
     {
         // Given
+        String[] modelNames = {"IPhone 99", "Motorola G99", "Samsung Galaxy 99", "Sony Xperia 99", "Huawei 99"};
+        for (String modelName : modelNames)
+        {
+            purchase.selectCellphone(modelName);
+        }
+
         // When
+        String value = purchase.buying();
+
         // Then
+        assertEquals("You have purchased " + purchase.getCellphones(), value);
+    }
+    @Test
+    void testBuyingNothing()
+    {
+        // Given
+        // Switch case go to default and return 0.
+        purchase.selectCellphone("No Phone");
+
+        // When
+        String value = purchase.buying();
+
+        // Then
+        assertEquals("Please select one or more phones to continue", value);
     }
 }
