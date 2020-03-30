@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -31,7 +32,7 @@ class PurchaseTest
     }
 
     @Test
-    void testIncludeExcludeInternetConnectionFalseThenTrue()
+    void testIncludeExcludeInternetConnectionFalseThenTrue() throws Exception
     {
         // Given
         boolean connectionFalse = false;
@@ -162,5 +163,32 @@ class PurchaseTest
 
         // Then
         assertEquals("Please select one or more phones to continue", value);
+    }
+    @ParameterizedTest
+    @ValueSource(ints = {-1, -2, -3})
+    void testLowerPriceBoundaryNegative(int Boundaries)
+    {
+        // Given
+        int value = Boundaries;
+
+        // When
+        Executable executable = () -> purchase.setPrice(value);
+
+        // Then
+        assertThrows(Exception.class, executable);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2})
+    void testLowerPriceBoundaryPositive(int Boundaries) throws Exception
+    {
+        // Given
+        int value = Boundaries;
+
+        // When
+        purchase.setPrice(value);
+
+        // Then
+        assertEquals(value, purchase.getPrice());
     }
 }

@@ -4,7 +4,6 @@ public class Purchase
 {
     boolean internetConnection;
     int phoneLines, price;
-    String message;
 
     private ArrayList<String> cellphones;
 
@@ -16,12 +15,6 @@ public class Purchase
     public ArrayList<String> getCellphones()
     {
         return cellphones;
-
-    }
-
-    public boolean isInternetConnection()
-    {
-        return internetConnection;
     }
 
     public void setInternetConnection(boolean internetConnection)
@@ -34,9 +27,16 @@ public class Purchase
         return price;
     }
 
-    public void setPrice(int price)
+    public void setPrice(int price) throws Exception
     {
-        this.price = price;
+        if (price < 0)
+        {
+            throw new Exception("Value less than 0");
+        }
+        else
+        {
+            this.price = price;
+        }
     }
 
 
@@ -138,7 +138,7 @@ public class Purchase
     {
         if (cellphones.isEmpty())
         {
-            return  "Please select one or more phones to continue";
+            return "Please select one or more phones to continue";
         }
         else
         {
