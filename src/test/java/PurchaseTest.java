@@ -1,9 +1,11 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,17 +19,26 @@ class PurchaseTest
         this.purchase = new Purchase();
     }
 
-    @ParameterizedTest
-    void includeExcludeInternetConnection(boolean connection)
+    @Test
+    void testIncludeExcludeInternetConnectionTrue()
     {
         // Given
-        boolean c = connection;
-        ArrayList<Integer> expected = new ArrayList();
-        expected.add(0);
+        boolean connectionTrue = true;
         // When
-        int c2 = purchase.includeExcludeInternetConnection(c);
+        int value = purchase.includeExcludeInternetConnection(connectionTrue);
         // Then
-        assertEquals(200,c2);
+        assertEquals(200, value);
+    }
+
+    @Test
+    void testIncludeExcludeInternetConnectionFalse()
+    {
+        // Given
+        boolean connectionFalse = false;
+        // When
+        int value = purchase.includeExcludeInternetConnection(connectionFalse);
+        // Then
+        assertEquals(0, value);
     }
 
     @Test
